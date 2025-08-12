@@ -151,7 +151,7 @@ $$
 ---
 
 ## 📷 Example Board Layout
-*(Insert image or screenshot of your PCB here)*
+(https://github.com/barnard704344/1st-order-high-pass/blob/main/images/board.png)
 
 ---
 
