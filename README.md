@@ -85,58 +85,52 @@ Example (C2 = 0.47 µF):
 
 **Method 3: Account for amplifier input impedance**
 
-When the amplifier input impedance (\( R_{\text{in,amp}} \)) is not much larger than R2,  
-you must calculate using the parallel resistance:
+When the amplifier input impedance ($R_\mathrm{in}$) is not much larger than $R_2$, you must use the parallel combination:
 
-\[
-R_{\text{eff}} = R2 \parallel R_{\text{in,amp}}
-\]
+$$
+R_\mathrm{eff} = R_2 \parallel R_\mathrm{in} = \frac{R_2 \cdot R_\mathrm{in}}{R_2 + R_\mathrm{in}}
+$$
 
-\[
-R_{\text{eff}} = \frac{R2 \times R_{\text{in,amp}}}{R2 + R_{\text{in,amp}}}
-\]
+Use $R_\mathrm{eff}$ in the cutoff formula:
 
-Where \( R_{\text{eff}} \) is used in the main cutoff formula:
-
-\[
-f_c = \frac{1}{2 \pi R_{\text{eff}} C2}
-\]
+$$
+f_c = \frac{1}{2\pi\,R_\mathrm{eff}\,C_2}
+$$
 
 ---
 
-**To find R2 for a target \( f_c \):**
+**To find $R_2$ for a target $f_c$ (with fixed $C_2$):**
 
-1. Decide your target cutoff frequency (\( f_c \)).
-2. Calculate \( R_{\text{eff}} \) from:
+1. Compute the required effective resistance:
 
-\[
-R_{\text{eff}} = \frac{1}{2\pi C2 f_c}
-\]
+$$
+R_\mathrm{eff} = \frac{1}{2\pi\,C_2\,f_c}
+$$
 
-3. Solve for R2 using:
+2. Solve for the actual shunt resistor:
 
-\[
-R2 = \frac{1}{\frac{1}{R_{\text{eff}}} - \frac{1}{R_{\text{in,amp}}}}
-\]
+$$
+R_2 = \frac{1}{\frac{1}{R_\mathrm{eff}} - \frac{1}{R_\mathrm{in}}}
+$$
 
 ---
 
-**Example:**  
-- Target \( f_c \) = 33.9 Hz  
-- C2 = 0.47 µF  
-- Amp \( R_{\text{in,amp}} \) = 47 kΩ
+**Example**
 
-Step 1:  
-\[
-R_{\text{eff}} = \frac{1}{2\pi \times 0.47\times10^{-6} \times 33.9} \approx 10\,000\ \Omega
-\]
+Target: $f_c = 33.9\ \text{Hz}$, $C_2 = 0.47\ \mu\text{F}$, $R_\mathrm{in} = 47\ \text{k}\Omega$
 
-Step 2:  
-\[
-R2 = \frac{1}{\frac{1}{10\,000} - \frac{1}{47\,000}} \approx 12\,700\ \Omega
-\]
+Step 1:
 
-So choose **R2 ≈ 12.7 kΩ** to achieve ~33.9 Hz cutoff.
+$$
+R_\mathrm{eff} = \frac{1}{2\pi \cdot 0.47\times 10^{-6} \cdot 33.9} \approx 10\ \text{k}\Omega
+$$
+
+Step 2:
+
+$$
+R_2 = \frac{1}{\frac{1}{10\ \text{k}\Omega} - \frac{1}{47\ \text{k}\Omega}} \approx 12.7\ \text{k}\Omega
+$$
+
 
 ---
 
