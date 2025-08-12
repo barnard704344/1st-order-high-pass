@@ -84,14 +84,59 @@ Example (C2 = 0.47 µF):
 ---
 
 **Method 3: Account for amplifier input impedance**
+
+When the amplifier input impedance (\( R_{\text{in,amp}} \)) is not much larger than R2,  
+you must calculate using the parallel resistance:
+
 \[
 R_{\text{eff}} = R2 \parallel R_{\text{in,amp}}
 \]
+
+\[
+R_{\text{eff}} = \frac{R2 \times R_{\text{in,amp}}}{R2 + R_{\text{in,amp}}}
+\]
+
+Where \( R_{\text{eff}} \) is used in the main cutoff formula:
+
+\[
+f_c = \frac{1}{2 \pi R_{\text{eff}} C2}
+\]
+
+---
+
+**To find R2 for a target \( f_c \):**
+
+1. Decide your target cutoff frequency (\( f_c \)).
+2. Calculate \( R_{\text{eff}} \) from:
+
+\[
+R_{\text{eff}} = \frac{1}{2\pi C2 f_c}
+\]
+
+3. Solve for R2 using:
+
 \[
 R2 = \frac{1}{\frac{1}{R_{\text{eff}}} - \frac{1}{R_{\text{in,amp}}}}
 \]
-Example: Want fc = 33.9 Hz with C2 = 0.47 µF → \(R_{\text{eff}}=10\text{k}\)  
-If amp Rin = 47 kΩ → choose R2 ≈ 12.7 kΩ.
+
+---
+
+**Example:**  
+- Target \( f_c \) = 33.9 Hz  
+- C2 = 0.47 µF  
+- Amp \( R_{\text{in,amp}} \) = 47 kΩ
+
+Step 1:  
+\[
+R_{\text{eff}} = \frac{1}{2\pi \times 0.47\times10^{-6} \times 33.9} \approx 10\,000\ \Omega
+\]
+
+Step 2:  
+\[
+R2 = \frac{1}{\frac{1}{10\,000} - \frac{1}{47\,000}} \approx 12\,700\ \Omega
+\]
+
+So choose **R2 ≈ 12.7 kΩ** to achieve ~33.9 Hz cutoff.
 
 ---
 
@@ -118,4 +163,3 @@ If amp Rin = 47 kΩ → choose R2 ≈ 12.7 kΩ.
 
 ## 📜 License
 This project is open-source under the MIT License — feel free to adapt for your own frequencies.
-
