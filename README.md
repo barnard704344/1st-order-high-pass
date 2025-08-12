@@ -88,46 +88,47 @@ Example (C2 = 0.47 µF):
 When the amplifier input impedance ($R_\mathrm{in}$) is not much larger than $R_2$, you must use the parallel combination:
 
 $$
-R_\mathrm{eff} \;=\; R_2 \parallel R_\mathrm{in}
-\;=\;
-\frac{R_2\,R_\mathrm{in}}{R_2 + R_\mathrm{in}}
+R_\mathrm{eff} = R_2 \parallel R_\mathrm{in} = \frac{R_2 \cdot R_\mathrm{in}}{R_2 + R_\mathrm{in}}
 $$
 
 Use $R_\mathrm{eff}$ in the cutoff formula:
 
 $$
-f_c \;=\; \frac{1}{2\pi\,R_\mathrm{eff}\,C_2}
+f_c = \frac{1}{2\pi\,R_\mathrm{eff}\,C_2}
 $$
 
 ---
 
 **To find $R_2$ for a target $f_c$ (with fixed $C_2$):**
 
-1. Compute the required effective resistance
-   $$
-   R_\mathrm{eff} \;=\; \frac{1}{2\pi\,C_2\,f_c}
-   $$
-2. Solve for the actual shunt resistor
-   $$
-   R_2 \;=\; \frac{1}{\dfrac{1}{R_\mathrm{eff}} - \dfrac{1}{R_\mathrm{in}}}
-   $$
+1. Compute the required effective resistance:
+
+$$
+R_\mathrm{eff} = \frac{1}{2\pi\,C_2\,f_c}
+$$
+
+2. Solve for the actual shunt resistor:
+
+$$
+R_2 = \frac{1}{\frac{1}{R_\mathrm{eff}} - \frac{1}{R_\mathrm{in}}}
+$$
 
 ---
 
 **Example**
 
-Target $f_c = 33.9\,\text{Hz}$, $C_2 = 0.47\,\mu\text{F}$, $R_\mathrm{in} = 47\,\text{k}\Omega$.
+Target: $f_c = 33.9\ \text{Hz}$, $C_2 = 0.47\ \mu\text{F}$, $R_\mathrm{in} = 47\ \text{k}\Omega$
 
 Step 1:
+
 $$
-R_\mathrm{eff} \;=\; \frac{1}{2\pi \cdot 0.47\times10^{-6} \cdot 33.9}
-\;\approx\; 10\,\text{k}\Omega
+R_\mathrm{eff} = \frac{1}{2\pi \cdot 0.47\times 10^{-6} \cdot 33.9} \approx 10\ \text{k}\Omega
 $$
 
 Step 2:
+
 $$
-R_2 \;=\; \frac{1}{\dfrac{1}{10\,\text{k}\Omega} - \dfrac{1}{47\,\text{k}\Omega}}
-\;\approx\; 12.7\,\text{k}\Omega
+R_2 = \frac{1}{\frac{1}{10\ \text{k}\Omega} - \frac{1}{47\ \text{k}\Omega}} \approx 12.7\ \text{k}\Omega
 $$
 
 
